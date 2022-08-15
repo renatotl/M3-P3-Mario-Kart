@@ -1,0 +1,313 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+      "title": "API M3-P3",
+      "description": "API para CRUD de characters do  Mario e carrinho de compras",
+      "termsOfService": "",
+      "contact": {
+        "email": "renatotl/github"
+      },
+      "version": "1.0.0"
+    },
+    "servers": [
+      {
+        "url": "http://localhost:3000/characters",
+        "description": "API de teste"
+      },
+      {
+        "url": "https://api-elgeladon.herokuapp.com/paletas",
+        "description": "API de produção"
+      }
+    ],
+    "paths": {
+      "/All-Characters": {
+        "get": {
+          "summary": "Lista de todas a charcter",
+          "description": "Rota responsável por listar todas as character",
+          "tags": ["Characters"],
+          "responses": {
+            "404": {
+              "description": "Not Found"
+            },
+            "200": {
+              "description": "OK",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/MarioKart"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/Characters-By-Id/{id}": {
+        "get": {
+          "summary": "Busca um character pelo ID",
+          "description": "Rota responsável por buscar um character pelo ID",
+          "tags": ["Characters"],
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "description": "Id do character para a busca",
+              "required": true
+            }
+          ],
+          "responses": {
+            "400": {
+              "description": "Bad Request"
+            },
+            "200": {
+              "description": "OK",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "object",
+                    "$ref": "#/components/schemas/MarioKart"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/Create-character": {
+        "post": {
+          "summary": "Cadastrar um character",
+          "description": "Rota responsável por cadastrar um character",
+          "tags": ["Characters"],
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MarioKart"
+                },
+                "examples": {
+                  "Characters": {
+                    "value": {
+                      "name": "Mario",
+                      "descricao": "A red car and very fast.",
+                      "photo": "./assets/images/Mario.png"
+                      
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "responses": {
+            "400": {
+              "description": "Bad Request"
+            },
+            "201": {
+              "description": "Created",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "object",
+                    "$ref": "#/components/schemas/MarioKart"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/Update-Character/{id}": {
+        "put": {
+          "summary": "Editar um character pelo ID",
+          "description": "Rota responsável por editar um character pelo ID",
+          "tags": ["Characters"],
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "description": "Id da character para a busca",
+              "required": true
+            }
+          ],
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MarioKart"
+                },
+                "examples": {
+                  "Character": {
+                    "value": {
+                      "name": "Yoshi",
+                      "typeCar": "The best car i nthe game.",
+                      "photo": "./assets/images/Yoshi.png"
+                     
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "responses": {
+            "400": {
+              "description": "Bad Request"
+            },
+            "200": {
+              "description": "OK",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "object",
+                    "$ref": "#/components/schemas/MarioKart"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/Detete-character/{id}": {
+        "delete": {
+          "summary": "Apagar um character pelo ID",
+          "description": "Rota responsável por apagar um charact pelo ID",
+          "tags": ["Characters"],
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "description": "Id do character para deleção",
+              "required": true
+            }
+          ],
+          "responses": {
+            "400": {
+              "description": "Bad Request"
+            },
+            "200": {
+              "description": "OK"
+            }
+          }
+        }
+      },
+      "/all-carrinho": {
+        "get": {
+          "summary": "Lista de todos os itens do carrinho",
+          "description": "Rota responsável por listar todos os itens do carrinho",
+          "tags": ["Carrinho"],
+          "responses": {
+            "404": {
+              "description": "Not Found"
+            },
+            "200": {
+              "description": "OK",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/Carrinho"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/create-carrinho": {
+        "post": {
+          "summary": "Cadastrar vários itens no carrinho",
+          "description": "Rota responsável por cadastrar vários itens no carrinho",
+          "tags": ["Carrinho"],
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Carrinho"
+                },
+                "examples": {
+                  "Carrinho": {
+                    "value": [
+                      {
+                        "characterId": "624230fdcd38269205c82197",
+                        "quantidade": 5
+                      },
+                      {
+                        "characterId": "62423c1e618f4a4738a5ee75",
+                        "quantidade": 2
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          },
+          "responses": {
+            "400": {
+              "description": "Bad Request"
+            },
+            "201": {
+              "description": "Created",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/Carrinho"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/finish-carrinho": {
+          "delete": {
+            "summary": "Apagar todos os itens do carrinho",
+            "description": "Rota responsável por apagar todos os itens do carrinho",
+            "tags": ["Carrinho"],
+            "responses": {
+              "400": {
+                "description": "Bad Request"
+              },
+              "200": {
+                "description": "OK"
+              }
+            }
+          }
+        }
+    },
+    "components": {
+      "schemas": {
+        "MarioKart": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "typeCar": {
+              "type": "string"
+            },
+            "photo": {
+              "type": "string"
+            }
+        
+          }
+        },
+        "Carrinho": {
+          "type": "object",
+          "properties": {
+            "characterId": {
+              "type": "string"
+            },
+            "quantidade": {
+              "type": "number"
+            }
+          }
+        }
+      }
+    }
+  }

@@ -1,0 +1,17 @@
+[
+  {
+    "name": "Mario",
+    "typeCar": "A middler red car",
+    "photo": "assets/image/Mario.png"
+  },
+  {
+    "name": "Yoshi",
+    "typeCar": "Fastest car in the game",
+    "photo": "assets/image/Yosh.png"
+  },
+  {
+    "name": "Luigi",
+    "typeCar": "A green car",
+    "photo": "assets/image/Luigi.png"
+  }
+]
