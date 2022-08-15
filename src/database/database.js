@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 function connectToDataBase() {
   mongoose
-    .connect('mongodb+srv://root:admin@api-mario-m3p3.vd2tcln.mongodb.net/?retryWrites=true&w=majority', {
+    .connect(process.env.URI_DATABASE, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
     })

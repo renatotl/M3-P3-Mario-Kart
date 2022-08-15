@@ -2,7 +2,7 @@
 
 
 Swagger é uma linguagem de descrição de interface para descrever APIs RESTful expressas usando JSON. O Swagger é usado junto com um conjunto de ferramentas de software de código aberto para projetar, construir, documentar e usar serviços da Web RESTful.
-
+Foito a documentação com o Swagger e conexão com o Mongo Atlas, deploy no heroku
 
 
 {
@@ -13,6 +13,7 @@ Swagger é uma linguagem de descrição de interface para descrever APIs RESTful
   npm i nodemon -d,
   npm i cors,
   npm i mongoose,
-  npm i swagger-ui-express
+  npm i swagger-ui-express,
+  npm i dotenv
 
 }
