@@ -14,6 +14,8 @@ Foito a documentação com o Swagger e conexão com o Mongo Atlas, deploy no her
   npm i cors,
   npm i mongoose,
   npm i swagger-ui-express,
-  npm i dotenv
+  npm i dotenv,
 
 }
+
+Link heroku: https://apai-mario-m3p3.herokuapp.com/characters

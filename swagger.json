@@ -15,7 +15,7 @@
         "description": "API de teste"
       },
       {
-        "url": "https://api-elgeladon.herokuapp.com/paletas",
+        "url": "https://apai-mario-m3p3.herokuapp.com/characters",
         "description": "API de produção"
       }
     ],
