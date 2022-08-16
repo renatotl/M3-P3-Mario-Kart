@@ -9,7 +9,7 @@ const connectToDataBase = require('./src/database/database');
 connectToDataBase();
 
 app.use(express.json());
-app.use('characters', route);
+app.use('/characters', route);
 app.use(cors());
 
 app.listen(port, () => {
