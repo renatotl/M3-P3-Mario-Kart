@@ -5,12 +5,12 @@ const {
   validId,
   validObjectBody,
 } = require('../middlewares/character.middleware');
+
 const swaggerUi = require('swagger-ui-express');
 const swaggerDocument = require('../../swagger.json');
 
 route.use('/api-docs', swaggerUi.serve);
 route.get('/api-docs', swaggerUi.setup(swaggerDocument));
-
 
 
 route.get('/All-Characters', controllerCharacters.findAllCharactersController);

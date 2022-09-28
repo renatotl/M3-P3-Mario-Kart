@@ -15,7 +15,7 @@
         "description": "API de teste"
       },
       {
-        "url": "https://apai-mario-m3p3.herokuapp.com/characters",
+        "url": "https://apai-mario-m3p3.herokuapp.com/characters/All-Characters",
         "description": "API de produção"
       }
     ],
